@@ -19,5 +19,4 @@ class ArticleItem(scrapy.Item):
     url_object_id = scrapy.Field()
     create_time = scrapy.Field()
     content = scrapy.Field()
-    doc_img_url = scrapy.Field()
-    front_image_path = scrapy.Field()
+    # front_image_path = scrapy.Field()
