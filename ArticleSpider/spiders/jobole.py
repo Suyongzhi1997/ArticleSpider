@@ -1,5 +1,6 @@
 # -*- coding: utf-8 -*-
 import scrapy
+import datetime
 from scrapy import Request
 
 from ArticleSpider.items import ArticleItem
@@ -22,6 +23,12 @@ class JoboleSpider(scrapy.Spider):
         item = ArticleItem()
         item['url_object_id'] = get_md5(response.url)
         item['title'] = response.xpath('//div[@class="main_left"]//h2/text()').extract_first()  # 新闻标题
-        item['create_time'] = response.xpath('//div[@class="meta"]/span/text()').extract_first()  # 发布时间
+        create_time = response.xpath('//div[@class="meta"]/span/text()').extract_first()  # 发布时间
+        create_time = create_time.split(' ')[0]
+        try:
+            create_time = datetime.datetime.strptime(create_time, '%Y-%m-%d').date()
+        except Exception as e:
+            create_time = datetime.datetime.now().date()
+        item['create_time'] = create_time
         item['content'] = response.xpath('//div[@class="wen_article"]').extract_first()  # 文章正文
         yield item
