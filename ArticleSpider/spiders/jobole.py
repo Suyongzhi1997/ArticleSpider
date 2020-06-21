@@ -11,7 +11,7 @@ from ArticleSpider.utils.common import get_md5
 class JoboleSpider(scrapy.Spider):
     name = 'jobole'
     allowed_domains = ['blog.jobbole.com']
-    start_urls = ['http://blog.jobbole.com/kaifadou/snews-getajax.php?next=%d' % i for i in range(1, 2)]
+    start_urls = ['http://blog.jobbole.com/kaifadou/snews-getajax.php?next=%d' % i for i in range(1, 5)]
 
     def parse(self, response):
         article_urls = response.xpath('//a/@href').extract()
