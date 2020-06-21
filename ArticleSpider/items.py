@@ -16,6 +16,7 @@ class ArticlespiderItem(scrapy.Item):
 
 class ArticleItem(scrapy.Item):
     title = scrapy.Field()
+    url = scrapy.Field()
     url_object_id = scrapy.Field()
     create_time = scrapy.Field()
     content = scrapy.Field()

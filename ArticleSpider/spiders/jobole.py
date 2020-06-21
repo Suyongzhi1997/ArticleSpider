@@ -21,6 +21,7 @@ class JoboleSpider(scrapy.Spider):
 
     def detail_parse(self, response):
         item = ArticleItem()
+        item['url'] = response.url
         item['url_object_id'] = get_md5(response.url)
         item['title'] = response.xpath('//div[@class="main_left"]//h2/text()').extract_first()  # 新闻标题
         create_time = response.xpath('//div[@class="meta"]/span/text()').extract_first()  # 发布时间
