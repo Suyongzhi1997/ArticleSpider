@@ -16,7 +16,7 @@ SPIDER_MODULES = ['ArticleSpider.spiders']
 NEWSPIDER_MODULE = 'ArticleSpider.spiders'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
-# USER_AGENT = 'ArticleSpider (+http://www.yourdomain.com)'
+USER_AGENT = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/80.0.3987.149 Safari/537.36'
 
 # Obey robots.txt rules
 ROBOTSTXT_OBEY = False
@@ -39,10 +39,10 @@ ROBOTSTXT_OBEY = False
 # TELNETCONSOLE_ENABLED = False
 
 # Override the default request headers:
-# DEFAULT_REQUEST_HEADERS = {
-#   'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8',
-#   'Accept-Language': 'en',
-# }
+DEFAULT_REQUEST_HEADERS = {
+  'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
+  'Accept-Language': 'zh-CN,zh;q=0.9',
+}
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
@@ -65,9 +65,10 @@ ROBOTSTXT_OBEY = False
 # Configure item pipelines
 # See https://docs.scrapy.org/en/latest/topics/item-pipeline.html
 ITEM_PIPELINES = {
-    'ArticleSpider.pipelines.JsonExportPipeline': 2,
+    # 'ArticleSpider.pipelines.JsonExportPipeline': 2,
     # 'scrapy.pipelines.images.ImagesPipeline': 1,
     # 'ArticleSpider.pipelines.ArticleImagePipline': 1,
+    'ArticleSpider.pipelines.MysqlPipeline': 1,
 }
 IMAGES_URLS_FIELD = 'doc_img_url'
 project_dir = os.path.abspath(os.path.dirname(__file__))
