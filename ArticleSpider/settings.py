@@ -1,15 +1,6 @@
 # -*- coding: utf-8 -*-
 import os
 
-# Scrapy settings for ArticleSpider project
-#
-# For simplicity, this file contains only settings considered important or
-# commonly used. You can find more settings consulting the documentation:
-#
-#     https://docs.scrapy.org/en/latest/topics/settings.html
-#     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html
-#     https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-
 BOT_NAME = 'ArticleSpider'
 
 SPIDER_MODULES = ['ArticleSpider.spiders']
@@ -42,6 +33,8 @@ DOWNLOAD_DELAY = 3
 DEFAULT_REQUEST_HEADERS = {
     'Accept': 'text/html,application/xhtml+xml,application/xml;q=0.9,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9',
     'Accept-Language': 'zh-CN,zh;q=0.9',
+    # 'Host': 'blog.jobbole.com',
+    # 'Cookie': 'Hm_lvt_42a9b1b1d382d464c04bb82b4916af4d=1592636735; security_session_verify=9799410d2b6de9874b5cc5fc59f1bd78; srcurl=687474703a2f2f626c6f672e6a6f62626f6c652e636f6d2f6b61696661646f752f736e6577732d676574616a61782e7068703f6e6578743d34; security_session_mid_verify=45c0d0b7e8ec71b5b9ccf2d9a2177ee7; Hm_lpvt_42a9b1b1d382d464c04bb82b4916af4d=1592745080'
 }
 
 # Enable or disable spider middlewares
